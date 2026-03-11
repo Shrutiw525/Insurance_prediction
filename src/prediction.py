@@ -4,16 +4,11 @@ import pickle
 import os
 class Insurance_Prediction:
     def __init__(self):
-        base_path = os.path.dirname(os.path.abspath(__file__))
-        artifacts_path = os.path.join(base_path, "..", "artifacts")
+        with open("D:\\TEKWORKS\\day13\\Insurance_prediction\\artifacts\\scaler.pkl","rb") as f: #it has scaled values of x_train and x_test data
+            self.scaler=pickle.load(f)
+        with open("D:\\TEKWORKS\\day13\\Insurance_prediction\\artifacts\\model.pkl","rb") as f: #the trained model is stored in this file
+            self.model=pickle.load(f)
 
-        scaler_file = os.path.join(artifacts_path, "scaler.pkl")
-        with open(scaler_file, "rb") as f:
-            self.scaler = pickle.load(f)
-
-        model_file = os.path.join(artifacts_path, "model.pkl")
-        with open(model_file, "rb") as f:
-            self.model = pickle.load(f)
 
     def prediction(self, Age, Annual_Income_LPA, Policy_Term_Years, Sum_Assured_Lakhs):
         import numpy as np
