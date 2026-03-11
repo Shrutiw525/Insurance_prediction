@@ -1,6 +1,7 @@
 # 1. load scaler.pkl and model.pkl files because we need to use them for prediction because model.pkl file contains the trained model and scaler.pkl file contains the scaler object which we used for scaling the data during training.
 # 2. create a function to predict
 import pickle
+import os
 class Insurance_Prediction:
     def __init__(self):
         base_path = os.path.dirname(os.path.abspath(__file__))
